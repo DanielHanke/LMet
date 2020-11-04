@@ -1,0 +1,148 @@
+2020/10/01 - Reunión en Labo MET
+Presentes: SBertozzi, laboratorista, MCamusso (Teams), MLOlguin (Teams)
+
+Notas:
+Permisos para carga de info: solamente los laboratoristas (5 usuarios).
+Permisos de usuarios externos (pero propios de Acindar) para cargar datos en el sistema
+El resto solamente permiso de lectura.
+Tipos de análisis: planilla excel.
+Ensayos: 
+Resultados cuantitativos
+Resultados cualitativos
+Ensayo cuantitativo:
+Rutina aptitud
+Reensayo
+5 Planillas posibles de alambrón: serían 5 métodos o recetas de ensayo. Conseguirlas.
+Planilla: Rutina aptitud pta ale.
+Desarrollar un soft para registrar estudios y resultados para contar con info y estadísticas de fácil acceso.
+Conseguir archivos excel con rutinas.
+Estudios cualitativos:
+el labo arma un reporte / informe cualitativo en word, con imágenes y texto. Tienen que normalizar el formato de esos estudios.
+Son de texto libre, hay que estandarizarlos para todos los productos. Ver tecnologías y herramientas para esto. Salida de informe como PDF usando reporting services.
+OF: orden de fabricación: todos los ensayos lo tienen.
+Para identificar una muestra, hay que imprimir una etiqueta (QR) que la acompaña.
+La muestra:
+puede llegar con la identificación del cliente (interno o externo). Los clientes son solamente internos, porque los externos los gestiona una persona (MLO) que es interna.
+Implementar esta forma en forma progresiva, primero algunos clientes más ordenados y después el resto.
+se le puede poner la etiqueta acá en el Lab Met
+En la muestra tiene que decir qué tipo de ensayos tiene que hacerse.
+El material está en tránsito hasta que se recibe la muestra.
+El cliente va a mandar la muestra con un QR. Lo imprime y se lo adjunta, papel común o etiqueta.
+Al generar el ID, ya quedan establecidos qué ensayos se van a hacer.
+Los reclamos de clientes externos son canalizados por MLO.
+El sistema es interno de Acindar, los clientes externos no acceden directamente al sistema.
+Objetivo ppal del sistema:
+bajar información fácil de históricos.
+Estadísticas: las justas y necesarias (ver).
+Muestras de feedback:
+vienen sin datos.
+Averiguar más detalles sobre qué son.
+El nombre oficial de cada ensayo es Estudio Metalográfico.
+Barras y elásticos: otra rutina de ensayos.
+Alambrón: sistema nuevo.
+Ejemplos de ensayos:
+Barras: el más completo, archivo 15152-20.
+Elásticos: el más completo, archivo 12100-20
+Uno de los ensayos lleva foto: archivo 12154.pdf
+
+Estructura lógica:
+Un estudio: una o más pastillas.
+Una pastilla: una o más muestras.
+Una pastilla: una colada.
+Una colada: uno o más lotes.
+Una OF: un grado de acero.
+Un grado de acero: una o más coladas.
+Una OF: un sólo diámetro.
+Un estudio: hasta 5 coladas.
+Detalle anecdótico:
+En SQB: 1 colada son 44 lotes (o palanquillas).
+En TL2: 1 colada son 60 lotes (o palanquillas).
+
+Checks de Acería:
+Son análisis metalográficos (de elementos químicos) que se hacen en el labo de Acería.
+Revisar si estaban en la ET original. Sí, estaban, figuran como checks.
+Se lleva una planilla histórica en excel: Indice ensayos-análisis.xlsx
+El ensayo lo hace la Acería, devuelve una planilla excel con los resultados.
+La planilla estándar Solicitud ensayo / análisis se puede usar como base para los pedidos de estudio.
+
+Archivos obtenidos en la visita:
+Carpeta: E:\Obras\Acindar\_MOA Oficina\7227B - Villa - Calidad - Laboratorio de ensayos metalográficos\01 - Info Cliente\Visita 20201001
+9737-18.xlsx
+12100-20.xlsx
+12104-20.xlsx
+12153-20.pdf
+12154-20.pdf
+EA 1233.xlsm
+INDICE ENSAYOS - ANALISIS.xls
+Listado de Estudios.xlsm
+Rutina Aptitud 1513S6.xlsx
+Rutina Aptitud 9254X.xlsx
+Rutina Aptitud EXPO.xlsx
+Rutina Aptitud IPH.xlsx
+Rutina Aptitud PTA ALE.xlsx
+
+OMSN 7227B - Laboratorio de ensayos metalográficos - Reunión con MC
+2020/10/15 - Teams
+
+Notas:
+Estas son unas notas surtidas surgidas de la charla. pasar en limpio y ajustar el cronograma.
+[x]Enviar hoy al mediodía, PDF + mpp.
+
+DB:
+ISA 95 mandatory.
+Validar con EGonzalez el modelo de datos, antes de empezar.
+Tablas de extensión propias de este sistema, poner como prefijo LMET_.
+
+Estado más intermedio: mantener el tracking todo junto para que si hay que agregar un estado nuevo haya que tocar en un solo lugar del código.
+Librerías de QR y envío de mail: preguntar a EGonzalez y a JMBedini si ya hay algo desarrollado.
+
+Frontend:
+Respetar el pattern MVVM o MVC (no estoy seguro). Hablarlo con JMBedini.
+Comentarios de EGonzalez: ver en OMSN 7227B ACINDAR Villa - Calidad Laboratorio de ensayos metalográficos
+OMSN 7227B ACINDAR Villa - Calidad Laboratorio de ensayos metalográficos
+2020/10/01 - Kickoff meeting
+
+Notas:
+Ver notas: OMSN 7227B - Laboratorio de ensayos metalográficos - Kickoff meeting
+Esas son notas relevadas en visita a labo.
+
+Charla: 
+Cronograma semana de 5/10.
+Tiempo de análisis de la estructura de datos según ISA, valdiaciones parciales con Edgardo González.
+Programación: Juan Manuel Bedini, como se organizó el código del LFIS, para corregir y no repetir los errores en el LMET. Hacer reunión la semana que viene.
+Reuniones de avance parciales semanales. Superponer con las del LMET.
+MLOlguin, referente del lado del LMET.
+
+LFIS - Devolución de EGonzalez
+LFIS: Single page application tienen tres cosas principales: 
+Components. Está cumplido.
+MVC: model view controller.
+Inyección de servicios: implica que se crea una clase con el servicio y se hacen las llamadas al BE a través de la clase.
+LFIS: No se usó el MVC en el Frontend.
+No hay carpeta que tenga el modelo con los objetos que se pasan desde el BE al FE.
+
+Model en el FE que copie el objeto del BE.
+
+Ir subiendo el código al repo cada poco tiempo, para revisión.
+
+OMSN 7227B ACINDAR Villa - Calidad Laboratorio de ensayos metalográficos - Gestión Limpio
+2020/10/01
+
+Notas:
+Lo podemos hacer en 4 meses, de octubre a enero, con un equipo de 3 personas fulltime más el líder de proyecto part time.
+Este es el resumen:
+Tiempos:
+Total: 1900 hs, incluye todas las funcionalidades indicadas en el documento: Acindar Laboratorio Metalográfico - Especificación Funcional - Sep2020.doc. Además, está contemplada la puesta en servicio del sistema y el seguimiento posterior hasta su estabilización.
+4 meses (octubre / noviembre / diciembre / enero)
+3 desarrolladores (1 junior, 2 semisenior) + Project leader
+
+
+--
+Ing. Ramiro Vota
+Gerente Ingeniería
+Cel: 3364637129 | Skype: rjvota
+Correo: rvota@trendingenieria.com.ar
+Oficina San Nicolás - Tel: (54 336) 443-1777
+
+
+
