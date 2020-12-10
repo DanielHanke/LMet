@@ -1,0 +1,37 @@
+Se establecen 4 tipos de ensayos ( ref 12100-20.xls, 12104-20 )
+
+Decarburación 
+Dureza Brinell
+Microinclusiones
+Tamaño de grano
+
+Para cada ensayo
+
+Decarburación 
+	Maximo
+	Minimo
+	Tipo ( número )
+	Observaciones?
+
+Dureza Brinell
+	Maximo
+	Minimo
+	Observaciones?	
+
+Microinclusiones
+	Metodo A
+		Fino
+		Grande
+	Metodo B
+		Fino
+		Grande
+	Metodo C
+		Fino
+		Grande
+	Metodo D
+		Fino
+		Grande
+Tamaño de grano
+	Tamaño (numero decimal)?
+
+Hay más?

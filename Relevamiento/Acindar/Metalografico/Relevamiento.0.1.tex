@@ -1,0 +1,266 @@
+\documentclass{article}
+
+\usepackage[automake]{glossaries}
+
+\newcommand{\proyecto}[0]{LMet}
+\newcommand{\actividad}[0]{Relevamiento ensayo metalográficos}
+\newcommand{\docversion}[0]{0.1}
+\newcommand{\fechado}[0]{Trend Ingeniería 2020}
+
+\author{%
+	\textbf{Autor}\\    
+    Daniel E. Hanke \\
+    Trend Ingenieria \\
+    \texttt{dhanke@trendingenieria.com.ar}\vspace{20pt} \\
+    }
+
+\input{../../Common/Trend_settings}
+
+\makeglossaries
+
+\newglossaryentry{TipoEntero}
+{
+name={\textbf{\textit{entero}}},
+description={Valor numérico que puede contener solo números enteros, negativos, positivos o cero. Ej -8 0 75}
+}
+
+\newglossaryentry{TipoDecimal}
+{
+name={\textbf{\textit{decimal}}},
+description={Valor numérico que puede contener solo números enteros de tipo real, es decir con un número arbitrario de decimales. Ej 0.871 -6,1 9 }
+}
+
+\newglossaryentry{TipoTexto}
+{
+name={\textbf{\textit{texto}}},
+description={Valor alfanumérico de longitud arbitraria, puede contener números, letras y caracteres especiales tales como [  ¿ ! }
+} 
+
+\begin{document}
+
+\input{../../Common/Titles/TrendTitle}
+
+\tableofcontents
+\newpage
+
+\section{Versiones}
+
+\begin{centering}
+\begin{tabular}{|>{\centering}m{2cm}|m{3cm}|m{3cm}|m{6.5cm}|} \hline
+\cellcolor{gray!25}Nro & \cellcolor{gray!25}Fecha& \cellcolor{gray!25}Autor & \cellcolor{gray!25}Descripción \\ \hline
+0.1  & 20/11/2020 & DHanke	& Versión inicial \\ \hline
+\end{tabular}
+\end{centering}
+
+\newpage
+
+
+%\includegraphics[width=1.0\textwidth]{./img/Diagram1.png}\\[0.1in]
+
+\section{Introducción}
+
+\subsection{Objetivo del documento}
+\par El documento tiene por objeto relevar la solución de software del laboratorio metalográfico, pedido por la empresa Acindar, encargando este trabajo a Trend Ingeniería
+
+
+\subsection{Audiencia}
+\par Este documento está dirigido a aquellas personas que están involucradas en el sistema tanto en rol de usuario como en el desarrollo.
+
+
+\section{Descripción de la nueva funcionalidad}
+
+\subsection{Ensayos}
+
+\par Para el laboratorio metalográfico, se definen los tipos de ensayos:
+\begin{itemize}
+	\item Decarburación  
+	\item Dureza Brinell
+	\item Microinclusiones
+	\item Tamaño de grano
+\end{itemize}
+
+%----------------------------------------------------------------------------------------------------
+\subsubsection{Ensayo de Decarburación  }
+
+\par Valores generados por el ensayo
+\begin{itemize}
+	\item{Valor Mínimo} 
+		\subitem Tipo de dato: \gls{TipoDecimal}
+	\item{Valor Máximo} 
+		\subitem Tipo de dato: \gls{TipoDecimal}
+	\item{Tipo} 
+		\subitem Tipo de dato: \gls{TipoEntero}
+	\item{Observaciones}
+		\subitem Tipo de dato: \gls{TipoTexto}
+\end{itemize}
+%----------------------------------------------------------------------------------------------------
+\subsubsection{Ensayo de Dureza Brinell }
+
+\par Valores generados por el ensayo
+\begin{itemize}
+	\item{Valor Mínimo} 
+		\subitem Tipo de dato: \gls{TipoDecimal}
+	\item{Valor Máximo} 
+		\subitem Tipo de dato: \gls{TipoDecimal}
+	\item{Observaciones}
+		\subitem Tipo de dato: \gls{TipoTexto}
+\end{itemize}
+%----------------------------------------------------------------------------------------------------
+\subsubsection{Ensayo de  Microinclusiones}
+\par Valores generados por el ensayo
+\begin{itemize}
+	\item{Metodo A Fino}
+		\subitem Tipo de dato: \gls{TipoDecimal}
+	\item{Metodo A Grande}
+		\subitem Tipo de dato: \gls{TipoDecimal}
+	\item{Metodo B Fino}
+		\subitem Tipo de dato: \gls{TipoDecimal}
+	\item{Metodo B Grande}
+		\subitem Tipo de dato: \gls{TipoDecimal}
+	\item{Metodo C Fino}
+		\subitem Tipo de dato: \gls{TipoDecimal}
+	\item{Metodo C Grande}
+		\subitem Tipo de dato: \gls{TipoDecimal}
+	\item{Metodo D Fino}
+		\subitem Tipo de dato: \gls{TipoDecimal}
+	\item{Metodo D Grande}
+		\subitem Tipo de dato: \gls{TipoDecimal}
+\end{itemize}
+
+%------------------------------------------------------------------------------------------------
+\subsubsection{Ensayo de Tamaño de grano }
+\par Valores generados por el ensayo
+\begin{itemize}
+	\item{Tamaño}
+
+\end{itemize}
+%------------------------------------------------------------------------------------------------
+
+\newpage
+\printglossaries
+
+
+%Objetos de la base de datos
+%\begin{itemize}
+%\item Usuarios
+%\item Permisos ( de carga de info, de lectura )
+%\item Estudio Conjunto de pastillas
+%\item Pastilla Conjunto de muestras
+%\item Muestra (Conjunto de ensayos? Uno a uno?)
+%\item Tipos de muestras (Definen los ensayos a realizar? )
+%\item Orden de fabricación
+%\item Ensayos
+%\item Resultados
+%\subitem Cuantitativos Rutinas de aptitud - reensayos ( que significa esto? ) explicarse
+%\subitem Cualitativos - Reportes con datos + imagenes, necesitan ser estandarizados
+%\end{itemize}
+%
+%\subsubsection{funcionalidades}
+%
+%\par Ensayar ( Cargar info de resultados ) Mostrar info de recetas setup de los ensayos
+%\par Imprimir codigo QR acompañando la muestra
+%\par Generar estadísticas ( buenos / malos ?) cantidades graficos de torta, otros?
+%\par Generar las hojas de ruta ( que ensayos debe hacerse para cada muestra ) Cual es el criterio? Son todas iguales? hay muestras que hay que hacer A, b, otra cosa?
+%\par Consultar Historico
+%\par Consultar estadisticas
+
+
+
+%
+%\par A continuación la tabla que envió IT: \\
+%
+%\begin{centering}
+%\begin{tabular}{|>{\centering}m{3cm}|m{3cm}|m{6.5cm}|} \hline
+%\cellcolor{gray!25}ID & \cellcolor{gray!25} D-REDUCI-OPR & \cellcolor{gray!25}D-COMPLE-OPR \\ \hline
+%209	& COLCUP	& COLOCAR CUPLAS (PEC) \\ \hline
+%321	& GP CUP	& GLASS PEENING CUPLAS \\ \hline
+%428	& DOPELP	& TRATAM. DOPELESS PIN \\ \hline
+%457	& DOPFRE	& TRAT.ROSC.API DOPFRE \\ \hline
+%470	& LOTCUP	& CTRL LOTE CUPLA \\ \hline
+%471	& COLVAL	& CTRL COL CUPLA VALID \\ \hline
+%472	& COLCIC	& CTRL COL/CICLO CUPLA \\ \hline
+%473	& APRCUP	& CTRL APR LOTE/COLCUP \\ \hline
+%474	& RFIDBX	& CTRL RFID BOX \\ \hline
+%475	& RFIDPN	& CTRL RFID PIN \\ \hline
+%476	& CTRLDM	& CTRL DATA MATRIX \\ \hline
+%477	& CTRURC	& CTRL NUMERACION URC \\ \hline
+%478	& HDRMEM	& FALTA EMI HDRM \\ \hline
+%479	& HDRMUT	& FALTA UT HDRM \\ \hline
+%480	& HDRMWM	& FALTA WMPI HDRM \\ \hline
+%481	& HDRMPH	& FALTA PH HDRM \\ \hline
+%\end{tabular}
+%\end{centering}
+%
+%\subsubsection{Incidencias de Nivel 2}
+%\par Estos son los chequeos expandidos de nivel 2
+%
+%\begin{centering}
+%\begin{tabular}{|>{\centering}m{3cm}|m{3cm}|m{6.5cm}|} \hline
+%\cellcolor{gray!25}IDChequeo & \cellcolor{gray!25} IDSubChequeo & \cellcolor{gray!25} Descripcion \\ \hline
+%1  & 1 & SEMI \\ \hline
+%10 & 1 & ELENCO\_ESTARCIDO \\ \hline
+%11 & 1 & CAR\_LOAD \\ \hline
+%12 & 1 & TRACEABILITY \\ \hline
+%13 & 1 & DPLS \\ \hline
+%13 & 2 & DPLS\_API \\ \hline
+%2  & 1 & RFID\_PIN \\ \hline
+%2  & 2 & RFID\_BOX \\ \hline
+%2  & 3 & DM\_RADIAL \\ \hline
+%2  & 4 & TRAC\_ETIQUETA \\ \hline
+%3  & 1 & HDRM \\ \hline
+%6  & 1 & CUPLA\_VIR \\ \hline
+%7  & 1 & CICLO\_COLADA \\ \hline
+%7  & 2 & CUPLA\_LOTE \\ \hline
+%7  & 3 & CUPLA\_UNION \\ \hline
+%8  & 1 & RETE \\ \hline
+%\end{tabular}
+%\end{centering}
+%
+%
+%
+%
+%\section{Desarrollo}
+%\subsection{Chequeos actuales nivel 2}
+%
+%\subsection{Incidencias IT}
+%
+%\subsection{Configuración IT - Nivel 2}
+%\par Se describe aquí la correspondencia entre IT y Nivel 2, generando chequeos nuevos, incluso, si aquellos chequeos que no entran en ninguno antes desarrollado.
+%
+%\begin{tabular}{ccc}
+%\hline 
+%Chequeo IT 				& Chequeo N2 			& Descripción \\ \hline
+%COLOCAR CUPLAS (PEC) 	& & \\
+%GLASS PEENING CUPLAS 	& & \\
+%TRATAM. DOPELESS PIN 	& & \\
+%TRAT.ROSC.API DOPFRE 	& & \\
+%CTRL LOTE CUPLA 		& & \\
+%CTRL COL CUPLA VALID 	& & \\
+%CTRL COL/CICLO CUPLA 	& & \\
+%CTRL APR LOTE/COLCUP 	& & \\
+%CTRL RFID BOX 			& RFID\_BOX 			& \\
+%CTRL RFID PIN 			& RFID\_PIN 			& \\
+%CTRL DATA MATRIX 		& DM\_RADIAL 			& \\
+%CTRL NUMERACION URC 	& TRAC\_ETIQUETA 		& \\
+%FALTA EMI HDRM 			& & \\
+%FALTA UT HDRM 			& & \\
+%FALTA WMPI HDRM 		& & \\
+%FALTA PH HDRM 			& & \\
+%\hline 
+%\end{tabular} 
+%
+%
+%\subsection{Interfaz gráfica}
+%\subsubsection{Cambios afectados}
+%
+%\section{Apéndices}
+%
+%\subsection{Documentos anexos}
+%
+%\subsection{Dudas y consultas}
+%
+%\begin{itemize}[label=\textcolor{greenTenaris}{$\checkmark$}]
+%\item Como asignar las tablas IT versus nivel 2
+%\end{itemize}
+
+\end{document}

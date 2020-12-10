@@ -1,0 +1,104 @@
+\usepackage{tabularx}
+\usepackage[pdftex]{graphicx}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+%\usepackage{hyperref}
+
+\usepackage{arimo}
+
+
+
+%\usepackage[thinlines]{easytable}
+%\usepackage[export]{adjustbox}
+\usepackage{float}
+\restylefloat{table}
+\renewcommand{\arraystretch}{1.5}
+
+
+
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+\usepackage[T1]{fontenc}
+\usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
+
+\newcommand{\todo}[1]{\tiny{\emph{to-do: #1}}\normalsize}
+
+\usepackage{amssymb}
+\usepackage{enumitem,xcolor}
+
+\usepackage{tikz}
+\usetikzlibrary{intersections}
+\usepackage{epigraph}
+\usepackage{lipsum}
+\renewcommand\epigraphflush{flushleft}
+\renewcommand\epigraphsize{\normalsize}
+\setlength\epigraphwidth{0.7\textwidth}
+\definecolor{titlepagecolor}{gray}{0.85}
+
+\definecolor{blueTenaris}{RGB}{0,0,153}
+\definecolor{greenTenaris}{RGB}{0,153,0}
+\definecolor{fucsiaTenaris}{RGB}{204,0,102}
+
+% las negritas en bluetenaris
+\let\oldtextbf\textbf
+\renewcommand{\textbf}[1]{\textcolor{blueTenaris}{\oldtextbf{#1}}}
+
+% las italicas en bluetenaris
+\let\oldemph\emph
+\renewcommand{\emph}[1]{\textcolor{blueTenaris}{\oldemph{#1}}}
+
+\usepackage{sectsty}
+\sectionfont{\color{fucsiaTenaris}}  % sets colour of chapters
+\subsectionfont{\color{blueTenaris}}  % sets colour of sections
+\subsubsectionfont{\color{blueTenaris}}  % sets colour of sections
+
+\DeclareFixedFont{\titlefont}{T1}{ppl}{b}{it}{0.5in}
+\makeatletter                       
+\def\printauthor{%                  
+    {\large \@author}}              
+\makeatother
+%\author{%
+%    Author 1 name \\
+%    Department name \\
+%    \texttt{email1@example.com}\vspace{20pt} \\
+%    Author 2 name \\
+%    Department name \\
+%    \texttt{email2@example.com}
+%    }
+% This is the command I wish to optimize
+\newcommand\titlepagedecoration[1]{%
+\begin{tikzpicture}[remember picture,overlay,shorten >= -10pt]
+\coordinate (tp1) at ([yshift=2cm]current page.west);
+\coordinate (tp2) at ([yshift=2cm,xshift=9cm]current page.west);
+\coordinate (tp3) at ([yshift=-15pt,xshift=7cm]current page.north);
+\coordinate (tp4) at ([yshift=-15pt]current page.north west);
+% Place text to het its coordinates
+\node[right] (titletext) at ([xshift=1cm,yshift=-5cm]current page.north west) {\parbox{\textwidth}{\color{white}#1}};
+
+\path[name path=p1] ([xshift=-5cm]tp2) -- ([xshift=-5cm]tp3);
+\path[name path=p2] (tp2) -- (tp3);
+\path[name path=p3] (tp1 |- titletext.south) -- (titletext.south -| tp3);
+
+\path[name intersections={of=p1 and p3,name=first}];
+\path[name intersections={of=p2 and p3,name=second}];
+
+\filldraw[titlepagecolor!100!white] (first-1) -- (second-1) -- (tp3) -- ([xshift=-5cm]tp3) -- cycle;
+\filldraw[titlepagecolor!80!white] (tp4) -- ([xshift=-5cm]tp3) -- (first-1) -- (tp1 |- titletext.south) -- cycle;
+\filldraw[titlepagecolor!100!white] (tp1 |- titletext.south) -- (first-1) -- ([xshift=-5cm]tp2) -- (tp1) -- cycle;
+\filldraw[titlepagecolor!80!white] (first-1) -- (second-1) -- (tp2) -- ([xshift=-5cm]tp2) -- cycle;
+
+% X = -6 <-> 16
+
+\filldraw[blueTenaris]  (-6,4.2) rectangle (2,4.3);
+\filldraw[greenTenaris]  (2,4.2) rectangle (10,4.3);
+\filldraw[fucsiaTenaris]  (10,4.2) rectangle (18,4.3);
+
+%\filldraw[greenTenaris]  (-7,6) rectangle (2,3.5);
+%\filldraw[fucsiaTenaris]  (-7,6) rectangle (2,3.5);
+
+% Place text again, to have it on top
+\node[right] (titletext) at ([xshift=1cm,yshift=-5cm]current page.north west) {\parbox{\textwidth}{\color{fucsiaTenaris}#1}};
+
+
+\end{tikzpicture}%
+}
